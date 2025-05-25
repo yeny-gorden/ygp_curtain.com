@@ -629,43 +629,4 @@
                 tabbuttons[i].classList.remove("active");
             }
 
-            document.getElementById(categoryName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-
-        // Tampilkan kategori pertama secara default saat halaman dimuat
-        document.addEventListener("DOMContentLoaded", function() {
-            // Memastikan kategori "Gorden" yang pertama kali tampil
-            openCategory(null, 'gorden-minimalis');
-            // Menandai tombol "Gorden" sebagai aktif
-            document.querySelector(".tab-buttons .tab-button:first-child").classList.add("active");
-        });
-
-        // JavaScript untuk Kalkulator Gorden
-        function hitungGorden() {
-            const lebarKusenInput = document.getElementById('lebarKusen');
-            const resultDiv = document.getElementById('result-gorden');
-
-            // Hapus kelas 'error' dan reset warna dari hasil sebelumnya
-            resultDiv.classList.remove('error');
-            resultDiv.style.color = "#007bff";
-            resultDiv.innerHTML = ""; // Bersihkan konten sebelumnya
-
-            const lebarKusen = parseFloat(lebarKusenInput.value);
-
-            if (isNaN(lebarKusen) || lebarKusen <= 0) {
-                resultDiv.innerHTML = "Mohon masukkan Lebar Gorden yang valid (angka positif).";
-                resultDiv.classList.add('error');
-                return;
-            }
-
-            // Rumus: (Lebar Kusen + 0.2) * 3 = Total Meter
-            const totalMeter = (lebarKusen + 0.2) * 3;
-
-            // Tampilkan hasil dan pesan peringatan hanya jika input valid
-            resultDiv.innerHTML = `Perkiraan Total Meter Kain/Vitrase: <strong>${totalMeter.toFixed(2)} Meter</strong><br><span class="warning-message">*Perkiraan ini bisa berbeda tergantung model gorden dan jenis kain yang digunakan.</span>`;
-        }
-    </script>
-
-</body>
-</html>
+            document.getElementById(categoryName).classList.add
