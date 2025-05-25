@@ -18,19 +18,24 @@
         header {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 300px; /* Atau sesuaikan dengan kebutuhan, misal: height: 40vh; */
             overflow: hidden;
+            display: flex; /* Tambahkan flexbox untuk centering overlay */
+            justify-content: center;
+            align-items: center;
         }
         header img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ini yang paling penting untuk mengisi dan tidak terpotong */
             display: block;
-        }
-        .overlay {
-            position: absolute;
+            position: absolute; /* Posisikan gambar secara absolut di dalam header */
             top: 0;
             left: 0;
+        }
+        .overlay {
+            position: relative; /* Ubah menjadi relative agar di atas gambar */
+            z-index: 1; /* Pastikan overlay berada di atas gambar */
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.4);
@@ -639,6 +644,7 @@
             }
 
             // Rumus: (Lebar Kusen + 0.2) * 3 = Total Meter
+            // Menggunakan rumus yang disimpan: (Lebar Kusen + 0.2) * 3 = Total Meter
             const totalMeter = (lebarKusen + 0.2) * 3;
 
             resultDiv.innerHTML = `Perkiraan Total Meter Kain/Vitrase: <strong>${totalMeter.toFixed(2)} Meter</strong><br><span class="warning-message">*Perkiraan ini bisa berbeda tergantung model gorden dan jenis kain yang digunakan.</span>`;
