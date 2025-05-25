@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="TdSh95iV0ErfyoAnEbfj3WfOO_5Dba7v896d1qFV264" />
+    <title>Yeny Gorden - Solusi Gorden dan Vitrase Anda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* CSS Dasar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #f0f0f0;
+        }
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+        }
+        .burger-menu .bar {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Styling untuk section konten */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 40px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Styling Kategori Produk */
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .tab-button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+        .tab-button.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .product-item h3 {
+            margin-top: 0;
+            color: #555;
+            font-size: 1.1em;
+        }
+        .product-item p {
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* Styling Testimoni */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .testimonial-item {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .testimonial-quote {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .testimonial-rating {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+
+        /* Styling Kontak dengan Ikon */
+        .contact-info {
+            text-align: center;
+        }
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info p .fa-solid,
+        .contact-info p .fa-brands {
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        .contact-info p a {
+            color: #333; /* Warna default untuk link di contact info */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info p a:hover {
+            color: #007bff;
+        }
+
+        /* Styling Kalkulator Gorden */
+        .calculator-form {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .calculator-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        .calculator-form input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            text-align: center;
+        }
+        .calculator-form button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .calculator-form button:hover {
+            background-color: #218838;
+        }
+        #result-gorden {
+            margin-top: 25px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        /* Style baru untuk pesan peringatan */
+        .warning-message {
+            color: #dc3545; /* Warna merah */
+            font-size: 0.9em;
+            font-weight: normal;
+            display: block;
+            margin-top: 5px;
+        }
+        /* Mengubah warna default result div jika ada pesan error */
+        #result-gorden.error {
+            color: #dc3545; /* Warna merah untuk pesan error utama */
+        }
+
+
+        /* Styling Sosial Media di Footer */
+        .social-links {
+            margin-top: 15px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.8em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #444;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 0;
+                padding: 15px 0;
+                border-bottom: 1px solid #555;
+            }
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            .burger-menu {
+                display: flex;
+            }
+            .overlay {
+                font-size: 2em;
+            }
+            .tab-button {
+                flex-grow: 1;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .calculator-form {
+                margin: 20px 10px;
+                padding: 20px;
+            }
+        }
+
+        /* --- FIRE EFFECT CSS --- */
+        #kontak h2 {
+            text-align: center;
+            color: #FF7F00; /* Warna dasar teks: Oranye (seperti inti api) */
+            margin-bottom: 30px;
+            /* Efek shadow untuk kesan api yang berpijar */
+            text-shadow: 0 0 5px rgba(255, 165, 0, 0.8), /* Kuning-oranye terang */
+                         0 0 15px rgba(255, 69, 0, 0.7), /* Oranye-merah */
+                         0 0 30px rgba(220, 20, 60, 0.5); /* Merah tua/crimson untuk pinggiran */
+            animation: fireText 2s ease-in-out infinite alternate; /* Animasi kedipan api */
+        }
+
+        @keyframes fireText {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 165, 0, 0.8),
+                             0 0 15px rgba(255, 69, 0, 0.7),
+                             0 0 30px rgba(220, 20, 60, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 8px rgba(255, 200, 0, 0.9), /* Sedikit lebih terang */
+                             0 0 20px rgba(255, 100, 0, 0.8), /* Lebih lebar */
+                             0 0 40px rgba(255, 0, 0, 0.6); /* Merah lebih intens */
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 165, 0, 0.8),
+                             0 0 15px rgba(255, 69, 0, 0.7),
+                             0 0 30px rgba(220, 20, 60, 0.5);
+            }
+        }
+        /* --- END FIRE EFFECT CSS --- */
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/header.jpg" alt="Kumpulan Gorden dan Blinds Yeny Gorden">
+        <div class="overlay">
+            <h1>Yeny Gorden</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" class="nav-brand">Yeny Gorden</a>
+        <div class="burger-menu" id="burger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#katalog">Katalog Produk</a></li>
+            <li><a href="#kalkulator-gorden">Kalkulator Gorden</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#tentang-kami">Tentang Kami</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="katalog">
+            <h2>Katalog Produk</h2>
+
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="openCategory(event, 'gorden-minimalis')">Gorden Minimalis</button>
+                <button class="tab-button" onclick="openCategory(event, 'roller-blinds')">Roller Blinds</button>
+                <button class="tab-button" onclick="openCategory(event, 'vertical-blinds')">Vertical Blinds</button>
+                <button class="tab-button" onclick="openCategory(event, 'vitrase')">Vitrase</button>
+                <button class="tab-button" onclick="openCategory(event, 'aksesoris')">Aksesoris</button>
+            </div>
+
+            <div id="gorden-minimalis" class="tab-content active">
+                <h3>Gorden Minimalis</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Gorden+Minimalis+1" alt="Gorden Minimalis 1">
+                        <h3>Gorden Abu-abu Polos</h3>
+                        <p>Desain simpel modern, cocok untuk semua ruang.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Gorden+Minimalis+2" alt="Gorden Coklat Muda">
+                        <h3>Gorden Coklat Muda</h3>
+                        <p>Memberikan kesan hangat dan cozy.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Gorden+Minimalis+3" alt="Gorden Minimalis 3">
+                        <h3>Gorden Garis Vertikal</h3>
+                        <p>Menambah tinggi visual ruangan.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Gorden+Minimalis+4" alt="Gorden Minimalis 4">
+                        <h3>Gorden dengan Ruffle</h3>
+                        <p>Sentuhan feminin minimalis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="roller-blinds" class="tab-content">
+                <h3>Roller Blinds</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Roller+Blinds+1" alt="Roller Blinds 1">
+                        <h3>Roller Blinds Blackout</h3>
+                        <p>Penghalang cahaya sempurna untuk kamar tidur.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Roller+Blinds+2" alt="Roller Blinds 2">
+                        <h3>Roller Blinds Dimout</h3>
+                        <p>Mengurangi intensitas cahaya, tetap terang.</p>
+                    </div>
+                     <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Roller+Blinds+3" alt="Roller Blinds 3">
+                        <h3>Roller Blinds Transparan</h3>
+                        <p>Memberikan privasi tanpa menghalangi pandangan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vertical-blinds" class="tab-content">
+                <h3>Vertical Blinds</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Vertical+Blinds+1" alt="Vertical Blinds 1">
+                        <h3>Vertical Blinds PVC</h3>
+                        <p>Awet dan mudah dibersihkan.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Vertical+Blinds+2" alt="Vertical Blinds 2">
+                        <h3>Vertical Blinds Fabric</h3>
+                        <p>Memberikan nuansa lembut pada ruangan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vitrase" class="tab-content">
+                <h3>Vitrase</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Vitrase+1" alt="Vitrase 1">
+                        <h3>Vitrase Polos Putih</h3>
+                        <p>Elegan dan fleksibel untuk berbagai desain.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Vitrase+2" alt="Vitrase 2">
+                        <h3>Vitrase Motif Bunga</h3>
+                        <p>Menambah sentuhan alami dan segar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="aksesoris" class="tab-content">
+                <h3>Aksesoris Gorden</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Hook+Gorden" alt="Hook Gorden">
+                        <h3>Hook Gorden</h3>
+                        <p>Berbagai desain hook untuk gorden Anda.</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x200?text=Rel+Gorden" alt="Rel Gorden">
+                        <h3>Rel Gorden</h3>
+                        <p>Rel berkualitas tinggi untuk gorden lancar.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="kalkulator-gorden">
+            <h2>Kalkulator Kebutuhan Gorden</h2>
+            <div class="calculator-form">
+                <p>Gunakan kalkulator ini untuk memperkirakan total meter kain atau vitrase yang Anda butuhkan.</p>
+                <label for="lebarKusen">Masukkan Lebar Gorden (dalam meter):</label>
+                <input type="number" id="lebarKusen" placeholder="Contoh: 1.5" step="0.01">
+                <button onclick="hitungGorden()">Hitung Kebutuhan</button>
+                <div id="result-gorden"></div>
+            </div>
+        </section>
+
+        <section id="tentang-kami">
+            <h2>Tentang Kami</h2>
+            <p>Yeny Gorden adalah penyedia solusi gorden dan vitrase berkualitas tinggi untuk rumah, kantor, dan berbagai kebutuhan interior Anda. Kami berkomitmen untuk menyediakan produk terbaik dengan desain inovatif dan layanan pelanggan yang prima. Dengan pengalaman bertahun-tahun, kami siap membantu Anda menciptakan suasana yang indah dan nyaman.</p>
+            <p>Kami melayani pembuatan dan pemasangan berbagai jenis gorden seperti gorden minimalis, klasik, modern, hingga berbagai jenis blinds seperti roller blinds, vertical blinds, horizontal blinds, dan roman blinds. Dapatkan konsultasi gratis dan penawaran terbaik dari kami!</p>
+        </section>
+
+        <section id="testimoni">
+            <h2>Apa Kata Pelanggan Kami?</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">"Sangat puas dengan gorden dari Yeny Gorden! Kualitasnya top, bahan bagus, jahitannya rapi. Pelayanan ramah dan proses pemasangan cepat. Ruangan jadi terlihat lebih mewah."</p>
+                    <p class="testimonial-author">- Ibu Ani, Purbalingga</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">"Roller blinds yang saya pesan sesuai ekspektasi. Cahaya jadi bisa diatur dengan mudah. Yeny Gorden benar-benar profesional, mulai dari konsultasi sampai pemasangan."</p>
+                    <p class="testimonial-author">- Bapak Budi, Banyumas</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">"Vitrase yang saya beli sangat cantik, membuat rumah lebih elegan tanpa menghalangi cahaya matahari. Harganya juga bersaing. Rekomendasi banget!"</p>
+                    <p class="testimonial-author">- Ibu Viona, Sokaraja</p>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">"Pelayanan Yeny Gorden sangat responsif dan membantu. Proses pengukuran cepat, dan gorden vertical blinds terpasang rapi di kantor saya. Sangat direkomendasikan untuk kebutuhan kantor!"</p>
+                    <p class="testimonial-author">- Kemenag, Purwokerto</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot"></i> Alamat: Jl. Jendral Sudirman Berkoh Rt.5 Rw.1 Kec. Purwokerto Selatan - 53146</p>
+                <p><i class="fa-solid fa-phone"></i> Telepon: <a href="tel:+6289504215020">+62 89504215020</a></p>
+                <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:yenygorden@gmail.com">yenygorden@gmail.com</a></p>
+                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/6289504215020" target="_blank">Kirim Pesan WhatsApp</a></p>
+                <p><i class="fa-brands fa-facebook"></i> Facebook: <a href="https://www.facebook.com/yenygorden" target="_blank">Yeny Gorden Facebook</a></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Yeny Gorden. Hak Cipta Dilindungi.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/yenygorden" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="mailto:yenygorden@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript untuk Burger Menu
+        const burgerMenu = document.getElementById('burger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        burgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // JavaScript untuk Tab Kategori Produk
+        function openCategory(evt, categoryName) {
+            var i, tabcontent, tabbuttons;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            document.getElementById(categoryName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Tampilkan kategori pertama secara default saat halaman dimuat
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab-button").click();
+        });
+
+        // JavaScript untuk Kalkulator Gorden
+        function hitungGorden() {
+            const lebarKusenInput = document.getElementById('lebarKusen');
+            const resultDiv = document.getElementById('result-gorden');
+
+            // Hapus kelas 'error' dan reset warna dari hasil sebelumnya
+            resultDiv.classList.remove('error');
+            resultDiv.style.color = "#007bff";
+
+            const lebarKusen = parseFloat(lebarKusenInput.value);
+
+            if (isNaN(lebarKusen) || lebarKusen <= 0) {
+                resultDiv.innerHTML = "Mohon Masukkan Lebar Gorden yang valid (angka positif).";
+                resultDiv.classList.add('error');
+                return;
+            }
+
+            // Rumus: (Lebar Kusen + 0.2) * 3 = Total Meter
+            const totalMeter = (lebarKusen + 0.2) * 3;
+
+            resultDiv.innerHTML = `Perkiraan Total Meter Kain/Vitrase: <strong>${totalMeter.toFixed(2)} Meter</strong><br><span class="warning-message">*Perkiraan ini bisa berbeda tergantung model gorden dan jenis kain yang digunakan.</span>`;
+        }
+    </script>
+
+</body>
+</html>
