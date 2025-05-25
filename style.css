@@ -1,0 +1,325 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #8B4513; /* Cokelat tua untuk navigasi */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.navbar .nav-link, .navbar-brand {
+    color: #fff !important;
+    font-weight: 500;
+}
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.navbar-nav .nav-link.active {
+    border-bottom: 2px solid #fff;
+}
+
+.hero-section {
+    /* Ganti gambar placeholder ini dengan gambar hero Anda */
+    background: url('https://via.placeholder.com/1500x500/A0522D/FFFFFF?text=Yeny+Gorden+-+Dekorasi+Interior+Berkualitas') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Overlay gelap untuk teks lebih jelas */
+    z-index: 1;
+}
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    font-weight: bold;
+}
+.hero-section p {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+.hero-section .btn {
+    background-color: #FFD700; /* Warna kuning emas */
+    color: #8B4513; /* Teks cokelat */
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+.hero-section .btn:hover {
+    background-color: #e0b000;
+    color: #8B4513;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #8B4513;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #FFD700;
+    border-radius: 2px;
+}
+
+.product-carousel-container {
+    margin-bottom: 60px; /* Jarak antar carousel */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+    padding-top: 20px;
+}
+.product-carousel-container h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #A0522D; /* Cokelat sedang */
+    margin-bottom: 30px;
+}
+
+.product-carousel .carousel-item img {
+    max-height: 450px; /* Tinggi maksimal gambar di carousel */
+    object-fit: cover;
+    margin: auto;
+    display: block;
+    width: 100%; /* Agar gambar mengisi lebar carousel */
+    border-radius: 8px; /* Sudut sedikit melengkung */
+}
+.product-carousel .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    color: #fff;
+}
+.product-carousel .carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.product-carousel .carousel-caption p {
+    font-size: 1rem;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(139, 69, 19, 0.7); /* Warna cokelat transparan */
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: #8B4513;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 8px;
+    overflow: hidden; /* Pastikan gambar di dalam card ikut rounded */
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.card-body {
+    padding: 20px;
+}
+.card-title {
+    color: #8B4513;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Layanan Section */
+#layanan .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 30px;
+}
+#layanan .card i {
+    color: #8B4513; /* Icon color changed to match theme */
+    margin-bottom: 15px;
+    font-size: 4rem; /* Larger icons */
+}
+#layanan .card h5 {
+    font-weight: bold;
+    color: #A0522D;
+}
+
+/* Tentang Kami Section */
+#tentang img {
+    border: 5px solid #FFD700; /* Border kuning di gambar */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+#tentang p {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* Kontak Section */
+#kontak p {
+    font-size: 1.1rem;
+}
+#kontak p i {
+    margin-right: 10px;
+    color: #8B4513;
+}
+#kontak a {
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: bold;
+}
+#kontak a:hover {
+    text-decoration: underline;
+    color: #A0522D;
+}
+#kontak .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+#kontak .btn-primary {
+    background-color: #8B4513;
+    border-color: #8B4513;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+#kontak .btn-primary:hover {
+    background-color: #A0522D;
+    border-color: #A0522D;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.footer p {
+    margin-bottom: 5px;
+}
+.footer i {
+    color: #FFD700;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366; /* Warna hijau WhatsApp */
+    color: white;
+    border-radius: 50%;
+    width: 65px; /* Sedikit lebih besar */
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem; /* Ikon lebih besar */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.whatsapp-button:hover {
+    background-color: #1DA851;
+    transform: scale(1.05);
+    color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .product-carousel .carousel-item img {
+        max-height: 300px;
+    }
+    .product-carousel .carousel-caption {
+        bottom: 10px;
+        padding: 10px;
+        width: 100%;
+        max-width: none;
+    }
+    .product-carousel .carousel-caption h5 {
+        font-size: 1.2rem;
+    }
+    .product-carousel .carousel-caption p {
+        font-size: 0.8rem;
+    }
+    .whatsapp-button {
+        width: 55px;
+        height: 55px;
+        font-size: 2.5rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .hero-section {
+        padding: 80px 15px;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .product-carousel .carousel-item img {
+        max-height: 250px;
+    }
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 2.2rem;
+    }
+}
