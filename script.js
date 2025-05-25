@@ -1,59 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi carousel untuk setiap kategori produk
-    var gordenCarousel = document.querySelector('#gordenCarousel');
-    if (gordenCarousel) {
-        new bootstrap.Carousel(gordenCarousel, {
-            interval: 5000, // Otomatis berpindah setiap 5 detik
-            wrap: true      // Kembali ke awal setelah slide terakhir
+    // Fungsionalitas Modal untuk Gambar
+    var imageModal = document.getElementById('imageModal');
+    if (imageModal) { // Pastikan modal ada sebelum menambahkan event listener
+        imageModal.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget; 
+            // Extract info from data-image-src attributes
+            var imageSrc = button.getAttribute('data-image-src'); 
+            
+            var modalImage = imageModal.querySelector('#modalImage');
+            modalImage.src = imageSrc;
+
+            // Opsional: atur judul modal berdasarkan alt text atau nama file
+            var altText = button.querySelector('img').alt;
+            var modalTitle = imageModal.querySelector('#imageModalLabel');
+            modalTitle.textContent = altText || 'Detail Gambar';
         });
     }
 
-    var blindsCarousel = document.querySelector('#blindsCarousel');
-    if (blindsCarousel) {
-        new bootstrap.Carousel(blindsCarousel, {
-            interval: 5500, // Interval sedikit berbeda
-            wrap: true
-        });
-    }
-
-    var wallpaperCarousel = document.querySelector('#wallpaperCarousel');
-    if (wallpaperCarousel) {
-        new bootstrap.Carousel(wallpaperCarousel, {
-            interval: 6000, // Interval sedikit berbeda lagi
-            wrap: true
-        });
-    }
-
-    // Optional: Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Optional: Add active class to navbar links on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
+    // Anda bisa menambahkan JavaScript lainnya di sini nanti, misalnya:
+    // - Smooth scrolling untuk navigasi
+    // - Validasi form kontak
+    // - Animasi elemen saat discroll
 });
