@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#kontak">Kontak</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -321,6 +324,40 @@
         </div>
     </section>
 
+    <section id="blog-terbaru" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Artikel Blog Terbaru</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="blog-post card h-100 p-3">
+                        <img src="images/gorden-ruang-tamu.jpg" class="card-img-top" alt="Gorden Ruang Tamu Minimalis">
+                        <div class="card-body">
+                            <h5 class="card-title">Memilih Gorden yang Tepat untuk Ruang Tamu Minimalis</h5>
+                            <div class="meta">Diposting pada 25 Mei 2025</div>
+                            <p class="card-text">Ruang tamu minimalis memerlukan perhatian khusus dalam pemilihan gorden agar tidak terkesan sempit atau ramai. Dalam artikel ini, kami akan membahas tips dan trik...</p>
+                            <a href="artikel-gorden-ruang-tamu.html" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="blog-post card h-100 p-3">
+                        <img src="images/tren-warna-gorden.jpg" class="card-img-top" alt="Tren Warna Gorden 2025">
+                        <div class="card-body">
+                            <h5 class="card-title">Tren Warna Gorden 2025: Apa yang Sedang Populer?</h5>
+                            <div class="meta">Diposting pada 18 Mei 2025</div>
+                            <p class="card-text">Setiap tahun, tren warna untuk interior rumah selalu berubah. Tahun 2025 membawa beberapa warna menarik untuk gorden yang bisa Anda pertimbangkan...</p>
+                            <a href="artikel-tren-warna-gorden.html" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div class="text-center mt-4">
+                <a href="blog.html" class="btn btn-outline-secondary btn-lg">Lihat Semua Artikel Blog</a>
+            </div>
+        </div>
+    </section>
+
+
     <section id="kontak" class="bg-light py-5">
         <div class="container">
             <h2 class="section-title">Hubungi Kami</h2>
@@ -360,8 +397,21 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // JavaScript untuk Modal Gambar
+        document.addEventListener('DOMContentLoaded', function() {
+            var imageModal = document.getElementById('imageModal');
+            imageModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget; // Tombol yang memicu modal
+                var imageSrc = button.getAttribute('data-image-src'); // Ambil nilai data-image-src
+                var modalImage = imageModal.querySelector('#modalImage');
+                modalImage.src = imageSrc; // Set sumber gambar modal
+            });
+        });
+    </script>
 </body>
 </html>
