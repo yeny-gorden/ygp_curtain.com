@@ -31,7 +31,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: url('https://via.placeholder.com/1500x800/8A2BE2/FFFFFF?text=Background+Gorden+Yeny') no-repeat center center/cover;
+    background: url('images/header.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
     padding: 100px 0;
