@@ -271,7 +271,7 @@
                         </div>
                         <div class="carousel-item">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-src="images/wallpaper-3.jpg">
-                                <img src="images/wallpaper-3.jpg" class="d-block w-100" alt="Wallpaper Kamar Anak Ceria">
+                            <img src="images/wallpaper-3.jpg" class="d-block w-100" alt="Wallpaper Kamar Anak Ceria">
                             </a>
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Wallpaper Kamar Anak Ceria</h5>
@@ -370,11 +370,11 @@
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="blog-post card h-100 p-3">
-                        <img src="images/artikel-tren-warna-gorden.jpg" class="card-img-top" alt="Tren Warna Gorden 2026">
+                        <img src="images/artikel-tren-warna-gorden.jpg" class="card-img-top" alt="Tren Warna Gorden 2025">
                         <div class="card-body">
-                            <h5 class="card-title">Tren Warna Gorden 2026: Apa yang Sedang Populer?</h5>
+                            <h5 class="card-title">Tren Warna Gorden <span id="blogYear">2025</span>: Apa yang Sedang Populer?</h5>
                             <div class="meta">Diposting pada 18 Mei 2026</div>
-                            <p class="card-text">Setiap tahun, tren warna untuk interior rumah selalu berubah. Tahun 2026 membawa beberapa warna menarik untuk gorden yang bisa Anda pertimbangkan...</p>
+                            <p class="card-text">Setiap tahun, tren warna untuk interior rumah selalu berubah. Tahun <span id="blogBodyYear">2025</span> membawa beberapa warna menarik untuk gorden yang bisa Anda pertimbangkan...</p>
                             <a href="artikel-tren-warna-gorden.html" class="btn btn-primary">Baca Selengkapnya</a>
                         </div>
                     </div>
@@ -470,7 +470,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Yeny Gorden. Semua Hak Dilindungi.</p>
+            <p>&copy; <span id="currentYear">2025</span> Yeny Gorden. Semua Hak Dilindungi.</p>
             <p>Melayani dengan sepenuh hati untuk keindahan rumah Anda.</p>
         </div>
     </footer>
@@ -506,6 +506,29 @@
                 var modalImage = imageModal.querySelector('#modalImage');
                 modalImage.src = imageSrc; // Set sumber gambar modal
             });
+
+            // KODE BARU UNTUK TAHUN OTOMATIS
+            const currentYearElement = document.getElementById('currentYear');
+            const blogYearElement = document.getElementById('blogYear'); // Ambil elemen tahun blog di Judul
+            const blogBodyYearElement = document.getElementById('blogBodyYear'); // Ambil elemen tahun blog di Body
+            
+            // Dapatkan tahun saat ini
+            const year = new Date().getFullYear();
+
+            // Update Tahun Footer (Hak Cipta)
+            if (currentYearElement) {
+                currentYearElement.textContent = year;
+            }
+
+            // Update Tahun Artikel Blog (Judul Tren Warna)
+            if (blogYearElement) {
+                blogYearElement.textContent = year;
+            }
+
+            // Update Tahun Artikel Blog (Body Tren Warna)
+            if (blogBodyYearElement) {
+                blogBodyYearElement.textContent = year;
+            }
         });
     </script>
 </body>
