@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tren Warna Gorden 2026: Apa yang Sedang Populer? - Yeny Gorden</title>
+    <title id="pageTitle">Tren Warna Gorden 2026: Apa yang Sedang Populer? - Yeny Gorden</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -95,18 +95,18 @@
 
     <div class="container">
         <article class="article-content">
-            <h1>Tren Warna Gorden 2026: Apa yang Sedang Populer?</h1>
-            <div class="meta">Diposting pada 18 Mei 2026 oleh Admin Yeny Gorden</div>
+            <h1 id="articleTitle">Tren Warna Gorden 2026: Apa yang Sedang Populer?</h1>
+            <div class="meta" id="articleMeta">Diposting pada 18 Mei 2026 oleh Admin Yeny Gorden</div>
             <img src="images/artikel-tren-warna-gorden.jpg" alt="Tren Warna Gorden 2026">
 
-            <p>Setiap tahun, dunia desain interior selalu menghadirkan tren warna baru yang mempengaruhi berbagai elemen dekorasi rumah, termasuk gorden. Memasuki tahun 2026, kita melihat pergeseran dan penegasan beberapa palet warna yang akan mendominasi jendela-jendela rumah modern. Yeny Gorden merangkum tren warna gorden 2026 yang perlu Anda pertimbangkan untuk memperbarui tampilan rumah Anda:</p>
+            <p>Setiap tahun, dunia desain interior selalu menghadirkan tren warna baru yang mempengaruhi berbagai elemen dekorasi rumah, termasuk gorden. Memasuki 2026, kita melihat pergeseran dan penegasan beberapa palet warna yang akan mendominasi jendela-jendela rumah modern. Yeny Gorden merangkum tren warna gorden 2026 yang perlu Anda pertimbangkan untuk memperbarui tampilan rumah Anda:</p>
 
             <h3>1. Kembali ke Alam dengan Earth Tones:</h3>
             <ul>
                 <li>Warna-warna alami seperti terracotta, sage green, sandy beige, dan rusty brown diprediksi akan sangat populer di tahun 2026. Warna-warna ini memberikan kesan hangat, nyaman, dan terhubung dengan alam, menciptakan atmosfer yang menenangkan di dalam ruangan.</li>
                 <li><strong>Saran Yeny Gorden:</strong> Kombinasikan gorden berwarna earth tone dengan furnitur kayu dan tanaman hias untuk menciptakan ruang yang harmonis dan alami.</li>
             </ul>
-
+            
             <h3>2. Kelembutan Warna Pastel yang Diperbarui:</h3>
             <ul>
                 <li>Warna pastel tidak pernah benar-benar hilang dari tren, namun di tahun 2026, kita melihat versi yang lebih dewasa dan lembut. Warna-warna seperti dusty rose, soft lavender, mint green pucat, dan baby blue hadir dengan sentuhan yang lebih halus dan tidak terlalu kekanak-kanakan.</li>
@@ -142,8 +142,66 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Yeny Gorden. Semua Hak Dilindungi.</p>
+        <p id="footerCopyright">&copy; 2026 Yeny Gorden. Semua Hak Dilindungi.</p>
         <p>Lokasi Kami: Purwokerto, Jawa Tengah, Indonesia</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dapatkan tahun saat ini (Realtime: 2025)
+            const currentYear = new Date().getFullYear();
+            
+            // Tanggal publikasi yang diinginkan: 1 Januari Tahun Saat Ini
+            const publishDate = `1 Januari ${currentYear}`;
+            
+            // --- 1. Perbarui Judul dan Isi Artikel (Menggunakan currentYear) ---
+            
+            const trendElements = [
+                { id: 'pageTitle', isInnerHtml: false }, 
+                { id: 'articleTitle', isInnerHtml: false }
+            ];
+
+            trendElements.forEach(item => {
+                const element = document.getElementById(item.id);
+                if (element) {
+                    let content = (item.id === 'pageTitle') ? document.title : element.textContent;
+                    // Ganti tahun 4 digit di judul dengan currentYear
+                    const newContent = content.replace(/\d{4}/g, currentYear); 
+                    
+                    if (item.id === 'pageTitle') {
+                        document.title = newContent;
+                    } else {
+                        element.textContent = newContent;
+                    }
+                }
+            });
+            
+            // Pembaruan Inti untuk Isi Artikel:
+            // Ganti semua penyebutan tahun 4 digit (mis. 2026) di dalam paragraf dan list 
+            // di konten artikel agar sesuai dengan tahun saat ini (2025).
+            document.querySelectorAll('.article-content p, .article-content li').forEach(el => {
+                // Regex /b(20\d{2})\b/g mencari semua angka 4 digit yang diawali '20' (tahun)
+                el.innerHTML = el.innerHTML.replace(/\b(20\d{2})\b/g, currentYear);
+            });
+
+
+            // --- 2. Perbarui Tanggal Posting menjadi 1 Januari currentYear ---
+            const metaElement = document.getElementById('articleMeta');
+            if (metaElement) {
+                const initialMetaText = metaElement.textContent;
+                // Ganti seluruh bagian tanggal posting yang lama dengan "1 Januari [Tahun Saat Ini]"
+                const newMetaText = initialMetaText.replace(/Diposting pada.*oleh/s, `Diposting pada ${publishDate} oleh`);
+                metaElement.textContent = newMetaText;
+            }
+
+            // --- 3. Perbarui Hak Cipta Footer (Menggunakan currentYear) ---
+            const footerElement = document.getElementById('footerCopyright');
+            if (footerElement) {
+                const footerText = footerElement.innerHTML;
+                // Ganti tahun 4 digit di footer dengan currentYear
+                footerElement.innerHTML = footerText.replace(/\d{4}/g, currentYear);
+            }
+        });
+    </script>
 </body>
 </html>
