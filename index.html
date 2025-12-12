@@ -214,7 +214,7 @@
                         </div>
                         <div class="carousel-item">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-image-src="images/blinds-4.jpg">
-                                <img src="images/blinds-4.jpg" class="d-block w-100" alt="Venetian Blinds SharpPoint">
+                            <img src="images/blinds-4.jpg" class="d-block w-100" alt="Venetian Blinds SharpPoint">
                             </a>
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Venetian Blinds By SharpPoint</h5>
@@ -362,7 +362,7 @@
                         <img src="images/artikel-gorden-ruang-tamu.jpg" class="card-img-top" alt="Gorden Ruang Tamu Minimalis">
                         <div class="card-body">
                             <h5 class="card-title">Memilih Gorden yang Tepat untuk Ruang Tamu Minimalis</h5>
-                            <div class="meta">Diposting pada 25 Mei 2026</div>
+                            <div class="meta">Diposting pada 1 Januari <span id="postYear1">2025</span></div>
                             <p class="card-text">Ruang tamu minimalis memerlukan perhatian khusus dalam pemilihan gorden agar tidak terkesan sempit atau ramai. Dalam artikel ini, kami akan membahas tips dan trik...</p>
                             <a href="artikel-gorden-ruang-tamu.html" class="btn btn-primary">Baca Selengkapnya</a>
                         </div>
@@ -373,7 +373,7 @@
                         <img src="images/artikel-tren-warna-gorden.jpg" class="card-img-top" alt="Tren Warna Gorden 2025">
                         <div class="card-body">
                             <h5 class="card-title">Tren Warna Gorden <span id="blogYear">2025</span>: Apa yang Sedang Populer?</h5>
-                            <div class="meta">Diposting pada 18 Mei 2026</div>
+                            <div class="meta">Diposting pada 1 Januari <span id="postYear2">2025</span></div>
                             <p class="card-text">Setiap tahun, tren warna untuk interior rumah selalu berubah. Tahun <span id="blogBodyYear">2025</span> membawa beberapa warna menarik untuk gorden yang bisa Anda pertimbangkan...</p>
                             <a href="artikel-tren-warna-gorden.html" class="btn btn-primary">Baca Selengkapnya</a>
                         </div>
@@ -509,8 +509,10 @@
 
             // KODE BARU UNTUK TAHUN OTOMATIS
             const currentYearElement = document.getElementById('currentYear');
-            const blogYearElement = document.getElementById('blogYear'); // Ambil elemen tahun blog di Judul
-            const blogBodyYearElement = document.getElementById('blogBodyYear'); // Ambil elemen tahun blog di Body
+            const blogYearElement = document.getElementById('blogYear'); // Tahun di Judul Tren Warna
+            const blogBodyYearElement = document.getElementById('blogBodyYear'); // Tahun di Body Tren Warna
+            const postYear1Element = document.getElementById('postYear1'); // Tahun Posting Artikel 1
+            const postYear2Element = document.getElementById('postYear2'); // Tahun Posting Artikel 2
             
             // Dapatkan tahun saat ini
             const year = new Date().getFullYear();
@@ -528,6 +530,16 @@
             // Update Tahun Artikel Blog (Body Tren Warna)
             if (blogBodyYearElement) {
                 blogBodyYearElement.textContent = year;
+            }
+
+            // Update Tahun Posting (Artikel 1)
+            if (postYear1Element) {
+                postYear1Element.textContent = year;
+            }
+
+            // Update Tahun Posting (Artikel 2)
+            if (postYear2Element) {
+                postYear2Element.textContent = year;
             }
         });
     </script>
