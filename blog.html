@@ -104,23 +104,23 @@
 
             <div class="blog-post">
                 <h2 class="post-title">Memilih Gorden yang Tepat untuk Ruang Tamu Minimalis</h2>
-                <div class="meta post-meta">Diposting pada 25 Mei 2026 oleh Admin Yeny Gorden</div>
+                <div class="meta post-meta">Diposting pada Januari <span class="year">2026</span> oleh Admin Yeny Gorden</div>
                 <img src="images/artikel-gorden-ruang-tamu.jpg" alt="Gorden Ruang Tamu Minimalis">
                 <p>Ruang tamu minimalis memerlukan perhatian khusus dalam pemilihan gorden agar tidak terkesan sempit atau ramai. Dalam artikel ini, kami akan membahas tips dan trik memilih gorden yang fungsional sekaligus estetik untuk ruang tamu minimalis Anda...</p>
                 <a href="artikel-gorden-ruang-tamu.html">Baca Selengkapnya</a>
             </div>
 
-            <div class="blog-post" id="post-tren-warna">
-                <h2 class="post-title">Tren Warna Gorden 2026: Apa yang Sedang Populer?</h2>
-                <div class="meta post-meta">Diposting pada 18 Mei 2026 oleh Admin Yeny Gorden</div>
-                <img src="images/artikel-tren-warna-gorden.jpg" alt="Tren Warna Gorden 2026">
-                <p>Setiap tahun, tren warna untuk interior rumah selalu berubah. Tahun 2026 membawa beberapa warna menarik untuk gorden yang bisa Anda pertimbangkan. Mulai dari warna netral yang menenangkan hingga sentuhan warna berani yang bisa menjadi statement...</p>
+            <div class="blog-post">
+                <h2 class="post-title">Tren Warna Gorden <span class="year">2026</span>: Apa yang Sedang Populer?</h2>
+                <div class="meta post-meta">Diposting pada Januari <span class="year">2026</span> oleh Admin Yeny Gorden</div>
+                <img src="images/artikel-tren-warna-gorden.jpg" alt="Tren Warna Gorden">
+                <p>Setiap tahun, tren warna untuk interior rumah selalu berubah. Tahun <span class="year">2026</span> membawa beberapa warna menarik untuk gorden yang bisa Anda pertimbangkan. Mulai dari warna netral yang menenangkan hingga sentuhan warna berani yang bisa menjadi statement...</p>
                 <a href="artikel-tren-warna-gorden.html">Baca Selengkapnya</a>
             </div>
 
             <div class="blog-post">
                 <h2 class="post-title">Cara Merawat Gorden agar Tetap Awet dan Bersih</h2>
-                <div class="meta post-meta">Diposting pada 10 Mei 2026 oleh Admin Yeny Gorden</div>
+                <div class="meta post-meta">Diposting pada Januari <span class="year">2026</span> oleh Admin Yeny Gorden</div>
                 <img src="images/artikel-cara-merawat-gorden.jpg" alt="Perawatan Gorden">
                 <p>Gorden adalah investasi yang dapat meningkatkan keindahan rumah Anda. Agar tetap terlihat prima dan tahan lama, perawatan yang tepat sangatlah penting. Berikut adalah panduan lengkap cara membersihkan dan merawat gorden berbagai jenis bahan...</p>
                 <a href="artikel-cara-merawat-gorden.html">Baca Selengkapnya</a>
@@ -128,9 +128,9 @@
 
             <div class="blog-post">
                 <h2 class="post-title">Tips Mengukur Kebutuhan Kain Gorden dengan Rumus Yeny Gorden</h2>
-                <div class="meta post-meta">Diposting pada 05 Mei 2026 oleh Admin Yeny Gorden</div>
+                <div class="meta post-meta">Diposting pada Januari <span class="year">2026</span> oleh Admin Yeny Gorden</div>
                 <img src="images/artikel-mengukur-gorden.jpg" alt="Mengukur Gorden">
-                <p>Salah satu pertanyaan yang sering diajukan adalah bagaimana cara menghitung berapa banyak kain yang dibutuhkan untuk gorden. Di Yeny Gorden, kami memiliki rumus sederhana yang bisa Anda gunakan untuk mendapatkan perkiraan yang akurat: <b>(Lebar Kusen + 0.2) * 3 = Total Meter</b>. Rumus ini cocok untuk gorden dan vitrase, memastikan Anda mendapatkan hasil yang bergelombang indah dan mewah. Mari kita bahas lebih lanjut cara mengaplikasikannya...</p>
+                <p>Salah satu pertanyaan yang sering diajukan adalah bagaimana cara menghitung berapa banyak kain yang dibutuhkan untuk gorden. Di Yeny Gorden, kami memiliki rumus sederhana yang bisa Anda gunakan untuk mendapatkan perkiraan yang akurat: <b>(Lebar Kusen + 0.2) * 3 = Total Meter</b>. Rumus ini cocok untuk gorden dan vitrase, memastikan Anda mendapatkan hasil yang bergelombang indah dan mewah...</p>
                 <a href="artikel-mengukur-gorden.html">Baca Selengkapnya</a>
             </div>
 
@@ -138,54 +138,24 @@
     </div>
 
     <footer>
-        <p id="footerCopyright">&copy; 2026 Yeny Gorden. Semua Hak Dilindungi.</p>
+        <p id="footerCopyright">&copy; <span class="year">2026</span> Yeny Gorden. Semua Hak Dilindungi.</p>
         <p>Lokasi Kami: Purwokerto, Jawa Tengah, Indonesia</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Dapatkan tahun saat ini (Realtime: 2025)
+            // Mengambil tahun saat ini (2026)
             const currentYear = new Date().getFullYear();
             
-            // Tanggal publikasi khusus untuk postingan yang bukan tren warna (Hanya tahun yang diupdate)
-            const standardYearReplace = new RegExp('\\b(20\\d{2})\\b', 'g');
-            
-            // --- 1. Perbarui Semua Judul dan Tahun di Setiap Postingan ---
-            document.querySelectorAll('.blog-post').forEach(post => {
-                const titleElement = post.querySelector('.post-title');
-                const metaElement = post.querySelector('.post-meta');
-                const contentElements = post.querySelectorAll('p'); // Perbarui paragraf konten
-
-                // A. Perbarui Judul Postingan
-                if (titleElement) {
-                    titleElement.textContent = titleElement.textContent.replace(standardYearReplace, currentYear);
-                }
-
-                // B. Perbarui Tanggal Postingan (Meta)
-                if (metaElement) {
-                    if (post.id === 'post-tren-warna') {
-                        // KASUS KHUSUS: Postingan Tren Warna (Tanggal 1 Januari Tahun Saat Ini)
-                        const publishDate = `1 Januari ${currentYear}`;
-                        metaElement.textContent = metaElement.textContent.replace(/Diposting pada.*oleh/s, `Diposting pada ${publishDate} oleh`);
-                    } else {
-                        // KASUS UMUM: Postingan lain (Pertahankan tanggal, hanya ganti tahun)
-                        metaElement.textContent = metaElement.textContent.replace(standardYearReplace, currentYear);
-                    }
-                }
-
-                // C. Perbarui Isi Postingan (Jika ada tahun di dalamnya)
-                contentElements.forEach(p => {
-                    p.innerHTML = p.innerHTML.replace(standardYearReplace, currentYear);
-                });
+            // Memperbarui semua elemen dengan class 'year'
+            document.querySelectorAll('.year').forEach(el => {
+                el.textContent = currentYear;
             });
 
-
-            // --- 2. Perbarui Hak Cipta Footer ---
-            const footerElement = document.getElementById('footerCopyright');
-            if (footerElement) {
-                const footerText = footerElement.innerHTML;
-                footerElement.innerHTML = footerText.replace(standardYearReplace, currentYear);
-            }
+            // Opsional: Memperbarui tahun di dalam paragraf yang mungkin tidak terbungkus span
+            document.querySelectorAll('.blog-post p').forEach(p => {
+                p.innerHTML = p.innerHTML.replace(/\b20\d{2}\b/g, currentYear);
+            });
         });
     </script>
 </body>
