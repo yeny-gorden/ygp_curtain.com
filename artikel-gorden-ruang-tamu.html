@@ -96,7 +96,8 @@
     <div class="container">
         <article class="article-content">
             <h1>Memilih Gorden yang Tepat untuk Ruang Tamu Minimalis</h1>
-            <div class="meta">Diposting pada 25 Mei 2025 oleh Admin Yeny Gorden</div>
+            <div class="meta">Diposting pada Januari <span id="tahun"></span> oleh Admin Yeny Gorden</div>
+            
             <img src="images/artikel-gorden-ruang-tamu.jpg" alt="Gorden Ruang Tamu Minimalis">
 
             <p>Ruang tamu adalah jantung dari sebuah rumah, tempat di mana Anda menerima tamu, bersantai bersama keluarga, dan mengekspresikan gaya pribadi Anda. Dalam desain interior minimalis, setiap elemen harus dipilih dengan cermat, termasuk gorden. Pemilihan gorden yang tepat tidak hanya berfungsi untuk mengatur cahaya dan privasi, tetapi juga untuk meningkatkan estetika ruangan tanpa membuatnya terasa sempit atau berlebihan. Berikut adalah beberapa tips dan trik dari Yeny Gorden dalam memilih gorden yang ideal untuk ruang tamu minimalis Anda:</p>
@@ -142,8 +143,15 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Yeny Gorden. Semua Hak Dilindungi.</p>
+        <p>&copy; <span id="tahun-footer"></span> Yeny Gorden. Semua Hak Dilindungi.</p>
         <p>Lokasi Kami: Purwokerto, Jawa Tengah, Indonesia</p>
     </footer>
+
+    <script>
+        // Mengisi tahun secara otomatis pada bagian meta artikel dan footer
+        const tahunSekarang = new Date().getFullYear();
+        document.getElementById("tahun").textContent = tahunSekarang;
+        document.getElementById("tahun-footer").textContent = tahunSekarang;
+    </script>
 </body>
 </html>
